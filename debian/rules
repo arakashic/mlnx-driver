@@ -19,7 +19,7 @@ override_dh_auto_build:
 	mkdir -p deb_output
 	./install.pl --force --without-dkms --kernel $(KVERS) --kernel-sources $(KSRC) --fwctl --all --without-openmpi --without-sharp --without-hcoll
 	cp DEBS/*/x86_64/*.deb deb_output
-	./install.pl --force --without-dkms --kernel 6.12.15-production+truenas --kernel-sources /usr/src/linux-headers-truenas-production-amd64 --fwctl --kernel-only --with-mlnx-nfsrdma --build-only || true
+	./install.pl --force --without-dkms --kernel $(KVERS) --kernel-sources $(KSRC) --fwctl --kernel-only --with-mlnx-nfsrdma --build-only || true
 	cp DEBS/*/x86_64/mlnx-nfsrdma*.deb deb_output
 
 override_dh_strip:
